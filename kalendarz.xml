@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="kalendarz" default="all">
+  
+  
+  <property file="kalendarz.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="project.jdk.home" value="${jdk.home.android_api_22_platform}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.android_api_22_platform}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.android_api_22_platform"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.animated-vector-drawable-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.appcompat-v7-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.design-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.recyclerview-v7-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.support-annotations-23.2.1.classpath">
+    <pathelement location="${basedir}/../../../Program Files/Andron/Android/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"/>
+  </path>
+  
+  <path id="library.support-v4-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"/>
+  </path>
+  
+  <path id="library.support-vector-drawable-23.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module app -->
+  
+  <dirname property="module.app.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.app" value="${jdk.home.android_api_23_platform}"/>
+  <property name="module.jdk.bin.app" value="${jdk.bin.android_api_23_platform}"/>
+  <property name="module.jdk.classpath.app" value="jdk.classpath.android_api_23_platform"/>
+  
+  <property name="compiler.args.app" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="app.output.dir" value="${module.app.basedir}/app/build/intermediates/classes/debug"/>
+  <property name="app.testoutput.dir" value="${module.app.basedir}/app/build/intermediates/classes/androidTest/debug"/>
+  
+  <path id="app.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="app.module.production.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <path refid="library.recyclerview-v7-23.2.1.classpath"/>
+    <path refid="library.support-v4-23.2.1.classpath"/>
+    <path refid="library.support-annotations-23.2.1.classpath"/>
+    <path refid="library.animated-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.support-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.design-23.2.1.classpath"/>
+    <path refid="library.appcompat-v7-23.2.1.classpath"/>
+  </path>
+  
+  <path id="app.runtime.production.module.classpath">
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.recyclerview-v7-23.2.1.classpath"/>
+    <path refid="library.support-v4-23.2.1.classpath"/>
+    <path refid="library.support-annotations-23.2.1.classpath"/>
+    <path refid="library.animated-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.support-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.design-23.2.1.classpath"/>
+    <path refid="library.appcompat-v7-23.2.1.classpath"/>
+  </path>
+  
+  <path id="app.module.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.recyclerview-v7-23.2.1.classpath"/>
+    <path refid="library.support-v4-23.2.1.classpath"/>
+    <path refid="library.support-annotations-23.2.1.classpath"/>
+    <path refid="library.animated-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.support-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.design-23.2.1.classpath"/>
+    <path refid="library.appcompat-v7-23.2.1.classpath"/>
+  </path>
+  
+  <path id="app.runtime.module.classpath">
+    <pathelement location="${app.testoutput.dir}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.recyclerview-v7-23.2.1.classpath"/>
+    <path refid="library.support-v4-23.2.1.classpath"/>
+    <path refid="library.support-annotations-23.2.1.classpath"/>
+    <path refid="library.animated-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.support-vector-drawable-23.2.1.classpath"/>
+    <path refid="library.design-23.2.1.classpath"/>
+    <path refid="library.appcompat-v7-23.2.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.app">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.app">
+    <patternset refid="excluded.from.module.app"/>
+  </patternset>
+  
+  <path id="app.module.sourcepath">
+    <dirset dir="${module.app.basedir}/app">
+      <include name="build/generated/source/r/debug"/>
+      <include name="build/generated/source/aidl/debug"/>
+      <include name="build/generated/source/buildConfig/debug"/>
+      <include name="build/generated/source/rs/debug"/>
+      <include name="build/generated/res/rs/debug"/>
+      <include name="src/main/res"/>
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="app.module.test.sourcepath">
+    <dirset dir="${module.app.basedir}/app">
+      <include name="build/generated/source/r/androidTest/debug"/>
+      <include name="build/generated/source/aidl/androidTest/debug"/>
+      <include name="build/generated/source/buildConfig/androidTest/debug"/>
+      <include name="build/generated/source/rs/androidTest/debug"/>
+      <include name="build/generated/res/rs/androidTest/debug"/>
+      <include name="src/androidTest/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.app" depends="compile.module.app.production,compile.module.app.tests" description="Compile module app"/>
+  
+  <target name="compile.module.app.production" depends="register.custom.compilers" description="Compile module app; production classes">
+    <mkdir dir="${app.output.dir}"/>
+    <javac2 destdir="${app.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.app}/javac">
+      <compilerarg line="${compiler.args.app}"/>
+      <bootclasspath refid="app.module.bootclasspath"/>
+      <classpath refid="app.module.production.classpath"/>
+      <src refid="app.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.app"/>
+    </javac2>
+    
+    <copy todir="${app.output.dir}">
+      <fileset dir="${module.app.basedir}/app/build/generated/source/r/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/aidl/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/buildConfig/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/res/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/src/main/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.app.tests" depends="register.custom.compilers,compile.module.app.production" description="compile module app; test classes" unless="skip.tests">
+    <mkdir dir="${app.testoutput.dir}"/>
+    <javac2 destdir="${app.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.app}/javac">
+      <compilerarg line="${compiler.args.app}"/>
+      <bootclasspath refid="app.module.bootclasspath"/>
+      <classpath refid="app.module.classpath"/>
+      <src refid="app.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.app"/>
+    </javac2>
+    
+    <copy todir="${app.testoutput.dir}">
+      <fileset dir="${module.app.basedir}/app/build/generated/source/r/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/aidl/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/buildConfig/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/source/rs/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/build/generated/res/rs/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/app/src/androidTest/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.app" description="cleanup module">
+    <delete dir="${app.output.dir}"/>
+    <delete dir="${app.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module Kalendarz -->
+  
+  <dirname property="module.kalendarz.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.kalendarz" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.kalendarz" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.kalendarz" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.kalendarz" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="kalendarz.output.dir" value="${module.kalendarz.basedir}/build/classes/production/Kalendarz"/>
+  <property name="kalendarz.testoutput.dir" value="${module.kalendarz.basedir}/build/classes/test/Kalendarz"/>
+  
+  <path id="kalendarz.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="kalendarz.module.production.classpath">
+    <path refid="${module.jdk.classpath.kalendarz}"/>
+  </path>
+  
+  <path id="kalendarz.runtime.production.module.classpath">
+    <pathelement location="${kalendarz.output.dir}"/>
+  </path>
+  
+  <path id="kalendarz.module.classpath">
+    <path refid="${module.jdk.classpath.kalendarz}"/>
+    <pathelement location="${kalendarz.output.dir}"/>
+  </path>
+  
+  <path id="kalendarz.runtime.module.classpath">
+    <pathelement location="${kalendarz.testoutput.dir}"/>
+    <pathelement location="${kalendarz.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.kalendarz">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.kalendarz">
+    <patternset refid="excluded.from.module.kalendarz"/>
+  </patternset>
+  
+  
+  <target name="compile.module.kalendarz" depends="compile.module.kalendarz.production,compile.module.kalendarz.tests" description="Compile module Kalendarz"/>
+  
+  <target name="compile.module.kalendarz.production" depends="register.custom.compilers" description="Compile module Kalendarz; production classes"/>
+  
+  <target name="compile.module.kalendarz.tests" depends="register.custom.compilers,compile.module.kalendarz.production" description="compile module Kalendarz; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.kalendarz" description="cleanup module">
+    <delete dir="${kalendarz.output.dir}"/>
+    <delete dir="${kalendarz.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.app, clean.module.kalendarz" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.app, compile.module.kalendarz" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

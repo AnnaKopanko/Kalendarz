@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Kalendarz"
+            android:icon="@mipmap/ic_calendar"
+            android:title="Kalendarz" />
+        <item
+            android:id="@+id/nav_Zakupy"
+            android:icon="@mipmap/ic_zakupy"
+            android:title="Zakupy" />
+        <item
+            android:id="@+id/nav_Kontakty"
+            android:icon="@mipmap/ic_kontakty"
+            android:title="Kontakty" />
+        <item
+            android:id="@+id/nav_Wydatki"
+            android:icon="@mipmap/ic_wydatki"
+            android:title="Wydatki" />
+        <item
+            android:id="@+id/nav_Lista"
+            android:icon="@mipmap/ic_lista"
+            android:title="Lista 'To do'" />
+        <item
+            android:id="@+id/nav_Urodziny"
+            android:icon="@mipmap/ic_urodziny"
+            android:title="Urodziny!" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>
