@@ -6,14 +6,14 @@
     <string name="wydatki">Wydatki</string>
     <string name="listaToDo">Lista \'TO DO\'</string>
     <string name="urodziny">Urodziny !</string>
-    <string name="title_activity_activity_menu">activity_menu</string>
+    <string name="title_activity_activity_menu">Witaj</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_usunac">nnn</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Logowanie</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -27,4 +27,19 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_zakupy">ZakupyActivity</string>
+    <string name="action_sort" />
+    <string name="title_activity_activity_zakupy">activity_zakupy</string>
+    <string name="Sortuj">Sortuj</string>
+    <string name="Ustawienia">Ustawienia</string>
+    <string name="action_add">Dodaj produkt</string>
+    <string name="Wyczyść">Wyczyść</string>
+    <string name="title_activity_activity_lista_to_do">activity_listaToDo</string>
+    <string name="main_btn_new_task" />
+    <string name="main_btn_show_incompleted">Do zrobienia!</string>
+    <string name="main_btn_show_completed">Zrobione:)</string>
+    <string name="wyczy">Wyczyść</string>
+    <string name="lista_kontakt_w">Lista Kontaktów</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

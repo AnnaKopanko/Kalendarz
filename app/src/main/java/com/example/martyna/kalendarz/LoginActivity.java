@@ -10,42 +10,49 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 @SuppressWarnings("SpellCheckingInspection")
 public class LoginActivity extends ActionBarActivity {
-    private EditText editLogin;
-    private EditText editPassword;
-
-    String nazwa= "M";
-    String haslo="Sawiko";
-
-    private String someVariable;
-
-    public String getSomeVariable() {
-        return someVariable;
-    }
-
-    public void setSomeVariable(String someVariable) {
-        this.someVariable = someVariable;
-    }
-
+    DatabaseHelper helper = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        editLogin= (EditText) findViewById(R.id.login);
-        editPassword= (EditText) findViewById(R.id.password);
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
+    }
+
+    public void onButtonClick(View v) {
+
+        if (v.getId() == R.id.Blogin) {
+            EditText a = (EditText) findViewById(R.id.login);
+            String str = a.getText().toString();
+            EditText b = (EditText) findViewById(R.id.password);
+            String pass = b.getText().toString();
+
+            String password = helper.searchPass(str);
+
+            if (pass.equals(password)) {
+                Intent i = new Intent(LoginActivity.this, activity_menu.class);
+                i.putExtra("login", str);
+                startActivity(i);
+            } else {
+                Toast temp = Toast.makeText(LoginActivity.this, "Login lub hasło są złe", Toast.LENGTH_SHORT);
+                temp.show();
+            }
+
+        }
+        if (v.getId() == R.id.Bzarejestruj) {
+            Intent i = new Intent(LoginActivity.this, SignUp.class);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -64,15 +71,5 @@ public class LoginActivity extends ActionBarActivity {
     }
 
 
-    public void onSignClick(View view) {
 
-        String h =editPassword.getText().toString();
-        String nick =editLogin.getText().toString();
-        if(nazwa.equals(nick) && haslo.equals(h)) {
-            Intent intent = new Intent(this, activity_menu.class);
-            intent.putExtra("imie", nazwa);
-            intent.putExtra("haslo", haslo);
-            startActivity(intent);
-        }
-    }
 }

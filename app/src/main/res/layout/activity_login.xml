@@ -22,26 +22,35 @@
                     android:singleLine="true" />
 
 
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/password"
+        android:layout_gravity="center_horizontal"
+        android:hint="Hasło" />
 
-            <Button
-                android:id="@+id/email_sign_in_button"
+    <Button
+        android:id="@+id/Blogin"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Sign in"
-                android:onClick="onSignClick"
-                android:textStyle="bold" />
-        </LinearLayout>
+        android:text="Zaloguj"
+        android:onClick="onButtonClick"
+        android:textStyle="bold"
+        android:background="@drawable/tloprzyciskow" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zarejestruj"
+        android:id="@+id/Bzarejestruj"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onButtonClick"
+        android:background="@drawable/tloprzyciskow" />
+
+</LinearLayout>
 
 

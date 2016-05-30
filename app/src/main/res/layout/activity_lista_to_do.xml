@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical"
+    android:background="@drawable/tlo">
+
+    <Button
+        android:id="@+id/btn_new"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj zadanie do zrobienia :)"
+        android:background="@drawable/tloprzyciskow" />
+
+    <ListView
+        android:id="@+id/view_task_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"></ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ToggleButton
+            android:id="@+id/btn_incomplete"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_btn_show_incompleted"
+            android:textOff="@string/main_btn_show_incompleted"
+            android:textOn="@string/main_btn_show_incompleted"
+            android:background="@drawable/tloprzyciskow" />
+
+        <ToggleButton
+            android:id="@+id/btn_complete"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="@string/main_btn_show_completed"
+            android:textOff="@string/main_btn_show_completed"
+            android:textOn="@string/main_btn_show_completed"
+            android:background="@drawable/tloprzyciskow" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wyczyść"
+            android:id="@+id/Wyczysc"
+            android:background="@drawable/tloprzyciskow"
+            android:onClick="onClickWyczysc" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

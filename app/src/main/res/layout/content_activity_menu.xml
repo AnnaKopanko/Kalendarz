@@ -8,33 +8,69 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/tlo"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.martyna.kalendarz.activity_menu"
     tools:showIn="@layout/app_bar_activity_menu">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Mój profil"
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView" />
-    <Button
-        android:id="@+id/button"
+
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:onClick="ClickPhoto"
-        android:text="Send photo"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:text="Zrób zdjęcie profilowe"
+        android:id="@+id/ViewTake"
+        android:textSize="25dp"
+        android:layout_below="@+id/TVusername"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:id="@+id/photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/ic_menu_camera"
+        android:layout_marginTop="99dp"
+        android:layout_below="@+id/ViewTake"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="camera"
+        android:id="@+id/button"
+        android:background="@drawable/tloprzyciskow"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_menu_gallery"/>
+        android:layout_marginTop="108dp" />
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Witaj"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/TVusername"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
+
 </RelativeLayout>
+
